@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
+#include <cstdlib>
+
 using namespace std;
 
 // 0. Disponibilizar um menu inicial que forneça as seguintes opções para o usuário : a.Cadastrar cidade;
@@ -11,6 +13,20 @@ using namespace std;
 // g.Listar Pokémons(ordem alfabética de tipo);
 // h.Contar Pokémons de cada tipo;
 // i.Encontrar Pokémons próximos;
+
+enum EscolhasEnum
+{
+    CadastrarCidade = 'a',
+    CadastrarEstrada = 'b',
+    BuscarCentroProximo = 'c',
+    CadastrarDino = 'd',
+    RemoverDino = 'e',
+    ListarDinoPorNome = 'f',
+    ListarDinoPorTipo = 'g',
+    ContarDinos = 'h',
+    EncontrarDinoPorTipo = 'i',
+    Sair = 'j'
+};
 
 void cadastrarCidade()
 {
@@ -66,60 +82,77 @@ void sair()
     exit(0);
 }
 
+void limparTela()
+{
+    #ifdef _WIN32
+        system("pause");
+        system("cls");
+    #else
+        cout << "Pressione ENTER para continuar...";
+        cin.ignore();
+        cin.get();
+        system("clear");
+        system("clear");
+    #endif
+}
+
 void menu()
 {
     char choice; // Escolha
-    cout << "Escolha uma dentre as opções abaixo:" << endl;
-    cout << "" << endl;
-    cout << "a.Cadastrar cidade" << endl;
-    cout << "b.Cadastrar estrada" << endl;
-    cout << "c.Buscar centro Pokémon mais próximo" << endl;
-    cout << "d.Cadastrar Pokémon" << endl;
-    cout << "e.Remover Pokémon" << endl;
-    cout << "f.Listar Pokémons(ordem alfabética de nome)" << endl;
-    cout << "g.Listar Pokémons(ordem alfabética de tipo)" << endl;
-    cout << "h.Contar Pokémons de cada tipo" << endl;
-    cout << "i.Encontrar Pokémons próximos" << endl;
-    cout << "j. Sair" << endl;
-    cout << "" << endl;
 
     while (true)
     {
+        cout << "Escolha uma dentre as opções abaixo:" << endl;
+        cout << "" << endl;
+        cout << "a.Cadastrar cidade" << endl;
+        cout << "b.Cadastrar estrada" << endl;
+        cout << "c.Buscar centro arqueológico mais próximo" << endl;
+        cout << "d.Cadastrar Dinossauro" << endl;
+        cout << "e.Remover Dinossauro" << endl;
+        cout << "f.Listar Dinossauro(ordem alfabética de nome)" << endl;
+        cout << "g.Listar Dinossauro(ordem alfabética de tipo)" << endl;
+        cout << "h.Contar Dinossauro de cada tipo" << endl;
+        cout << "i.Encontrar Dinossauro próximos" << endl;
+        cout << "j. Sair" << endl;
+        cout << "" << endl;
+
         cin >> choice; // Pega escolha do usuário
 
         switch (choice) // Switch de acordo com a escolha do usuário
         {
-        case 'a':
+        case CadastrarCidade:
             cadastrarCidade();
             break;
-        case 'b':
+        case CadastrarEstrada:
             cadastrarEstrada();
             break;
-        case 'c':
+        case BuscarCentroProximo:
             buscarCentroProximo();
             break;
-        case 'd':
+        case CadastrarDino:
             cadastrarDino();
             break;
-        case 'e':
+        case RemoverDino:
             removerDino();
             break;
-        case 'f':
+        case ListarDinoPorNome:
             listarDinos("nome");
             break;
-        case 'g':
+        case ListarDinoPorTipo:
             listarDinos("tipo");
             break;
-        case 'h':
+        case ContarDinos:
             contarDinos();
             break;
-        case 'i':
+        case EncontrarDinoPorTipo:
             encontrarDinosProximos();
             break;
-        case 'j':
+        case Sair:
             sair();
             break;
         }
+
+        limparTela();
     }
 };
 
