@@ -1,3 +1,11 @@
+/*Nomes - Matricula - Curso
+    Anna Beatriz da Silva Bitencur - 753 - GES
+    Vinicius da Silva Santos - 637 - GEs
+    Petrus de Souza Matos Pfaffenbach - 627 - GES
+    Marcelo Henrique da Silva Costa - 628 - Ges
+    Maria Eduarda Constância Rocha Moreira - 710 - GES
+*/
+
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
