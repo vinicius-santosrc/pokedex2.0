@@ -13,6 +13,7 @@
 #include "strategies/StreetStrategy.h"
 #include "strategies/CloseCenter.h"
 #include "strategies/DinoStrategy.h"
+#include <list>
 
 using namespace std;
 
@@ -95,6 +96,7 @@ void sair()
 }
 
 void limparTela()
+
 {
 #ifdef _WIN32
     system("pause");
@@ -114,17 +116,17 @@ void menu()
 
     while (true)
     {
-        cout << "Escolha uma dentre as opções abaixo:" << endl;
+        cout << "Escolha uma dentre as opcoes abaixo:" << endl;
         cout << "" << endl;
         cout << "a.Cadastrar cidade" << endl;
         cout << "b.Cadastrar estrada" << endl;
-        cout << "c.Buscar centro arqueológico mais próximo" << endl;
+        cout << "c.Buscar centro arqueologico mais proximo" << endl;
         cout << "d.Cadastrar Dinossauro" << endl;
         cout << "e.Remover Dinossauro" << endl;
-        cout << "f.Listar Dinossauro(ordem alfabética de nome)" << endl;
-        cout << "g.Listar Dinossauro(ordem alfabética de tipo)" << endl;
+        cout << "f.Listar Dinossauro(ordem alfabetica de nome)" << endl;
+        cout << "g.Listar Dinossauro(ordem alfabetica de tipo)" << endl;
         cout << "h.Contar Dinossauro de cada tipo" << endl;
-        cout << "i.Encontrar Dinossauro próximos" << endl;
+        cout << "i.Encontrar Dinossauro proximos" << endl;
         cout << "j. Sair" << endl;
         cout << "" << endl;
 
