@@ -9,6 +9,10 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
+#include "strategies/CityStrategy.h"
+#include "strategies/StreetStrategy.h"
+#include "strategies/CloseCenter.h"
+#include "strategies/DinoStrategy.h"
 
 using namespace std;
 
@@ -36,53 +40,53 @@ enum EscolhasEnum
     Sair = 'j'
 };
 
-void cadastrarCidade()
+void cadastrarCidadeIndex()
 {
-    cout << "Cadastrar cidade em desenvolvimento" << endl;
+    cadastrarCidade();
 };
 
-void cadastrarEstrada()
+void cadastrarEstradaIndex()
 {
-    cout << "Cadastrar estrada em desenvolvimento" << endl;
+    cadastrarEstrada();
 };
 
-void buscarCentroProximo()
+void buscarCentroProximoIndex()
 {
-    cout << "Buscar dinos em desenvolvimento" << endl;
+    CentroProximo();
 };
 
-void cadastrarDino()
+void cadastrarDinoIndex()
 {
-    cout << "Cadastrar dinos em desenvolvimento" << endl;
+    cadastrarDino();
 };
 
-void removerDino()
+void removerDinoIndex()
 {
-    cout << "Remoção de dinos em desenvolvimento" << endl;
+    removerDino();
 };
 
-void listarDinos(string filtragem)
+void listarDinosIndex(string filtragem)
 {
     if (filtragem == "nome")
     {
         // Pelo Nome
-        cout << "Filtragem por nome em desenvolvimento" << endl;
+        listarDinosPeloNome();
     }
     else
     {
         // Pelo Tipo
-        cout << "Filtragem por tipo em desenvolvimento" << endl;
+        listarDinosPeloTipo();
     }
 };
 
-void contarDinos()
+void contarDinosIndex()
 {
-    cout << "Contagem de dinos em desenvolvimento" << endl;
+    contarDinos();
 };
 
-void encontrarDinosProximos()
+void encontrarDinosProximosIndex()
 {
-    cout << "Encontrar dinos proximos em desenvolvimento" << endl;
+    encontrarDinos();
 };
 
 void sair()
@@ -92,16 +96,16 @@ void sair()
 
 void limparTela()
 {
-    #ifdef _WIN32
-        system("pause");
-        system("cls");
-    #else
-        cout << "Pressione ENTER para continuar...";
-        cin.ignore();
-        cin.get();
-        system("clear");
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system("pause");
+    system("cls");
+#else
+    cout << "Pressione ENTER para continuar...";
+    cin.ignore();
+    cin.get();
+    system("clear");
+    system("clear");
+#endif
 }
 
 void menu()
@@ -129,31 +133,31 @@ void menu()
         switch (choice) // Switch de acordo com a escolha do usuário
         {
         case CadastrarCidade:
-            cadastrarCidade();
+            cadastrarCidadeIndex();
             break;
         case CadastrarEstrada:
-            cadastrarEstrada();
+            cadastrarEstradaIndex();
             break;
         case BuscarCentroProximo:
-            buscarCentroProximo();
+            buscarCentroProximoIndex();
             break;
         case CadastrarDino:
-            cadastrarDino();
+            cadastrarDinoIndex();
             break;
         case RemoverDino:
-            removerDino();
+            removerDinoIndex();
             break;
         case ListarDinoPorNome:
-            listarDinos("nome");
+            listarDinosIndex("nome");
             break;
         case ListarDinoPorTipo:
-            listarDinos("tipo");
+            listarDinosIndex("tipo");
             break;
         case ContarDinos:
-            contarDinos();
+            contarDinosIndex();
             break;
         case EncontrarDinoPorTipo:
-            encontrarDinosProximos();
+            encontrarDinosProximosIndex();
             break;
         case Sair:
             sair();
@@ -168,3 +172,8 @@ int main()
 {
     menu(); // Inicializar o menu
 };
+
+/*nova  entrega:
+  - faz lista de adjacencia
+  - dijkstra
+*/
