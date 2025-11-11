@@ -48,7 +48,9 @@ void cadastrarCidade() {
     novaCidade.id = numCidades;
 
     cout << "Digite o nome da nova cidade: ";
-    cin >> novaCidade.nome;
+    cin.ignore();
+    getline(cin >> ws, novaCidade.nome);
+
 
     char resposta;
     cout << "A cidade '" << novaCidade.nome << "' possui um centro Pokemon? (s/n): ";

@@ -56,44 +56,45 @@ void buscarCentroProximoIndex()
     CentroProximo();
 };
 
-void cadastrarDinoIndex()
+void cadastrarPokemonIndex()
 {
-    cadastrarDino();
+    cadastrarPokemon();
 };
 
-void removerDinoIndex()
+void removerPokemonIndex()
 {
-    removerDino();
+    removerPokemon();
 };
 
-void listarDinosIndex(string filtragem)
+void listarPokemonsIndex(string filtragem)
 {
     if (filtragem == "nome")
     {
         // Pelo Nome
-        listarDinosPeloNome();
+        listarPokemonsPeloNome();
     }
     else
     {
         // Pelo Tipo
-        listarDinosPeloTipo();
+        listarPokemonsPorTipo();
     }
 };
 
-void contarDinosIndex()
+void contarPokemonsIndex()
 {
-    contarDinos();
+    contarPokemons();
 };
 
-void encontrarDinosProximosIndex()
+void encontrarPokemonsProximosIndex()
 {
-    encontrarDinos();
+    encontrarPokemonsProximos();
 };
 
 void sair()
 {
     exit(0);
 }
+
 
 void limparTela()
 
@@ -120,13 +121,13 @@ void menu()
         cout << "" << endl;
         cout << "a.Cadastrar cidade" << endl;
         cout << "b.Cadastrar estrada" << endl;
-        cout << "c.Buscar centro arqueologico mais proximo" << endl;
-        cout << "d.Cadastrar Dinossauro" << endl;
-        cout << "e.Remover Dinossauro" << endl;
-        cout << "f.Listar Dinossauro(ordem alfabetica de nome)" << endl;
-        cout << "g.Listar Dinossauro(ordem alfabetica de tipo)" << endl;
-        cout << "h.Contar Dinossauro de cada tipo" << endl;
-        cout << "i.Encontrar Dinossauro proximos" << endl;
+        cout << "c.Buscar centro Pokemon mais proximo" << endl;
+        cout << "d.Cadastrar Pokemon" << endl;
+        cout << "e.Remover Pokemon" << endl;
+        cout << "f.Listar Pokemon(ordem alfabetica de nome)" << endl;
+        cout << "g.Listar Pokemo(ordem alfabetica de tipo)" << endl;
+        cout << "h.Contar Pokemon de cada tipo" << endl;
+        cout << "i.Encontrar Pokemon proximos" << endl;
         cout << "j. Sair" << endl;
         cout << "" << endl;
 
@@ -144,22 +145,22 @@ void menu()
             buscarCentroProximoIndex();
             break;
         case CadastrarDino:
-            cadastrarDinoIndex();
+            cadastrarPokemonIndex();
             break;
         case RemoverDino:
-            removerDinoIndex();
+            removerPokemonIndex();
             break;
         case ListarDinoPorNome:
-            listarDinosIndex("nome");
+            listarPokemonsIndex("nome");
             break;
         case ListarDinoPorTipo:
-            listarDinosIndex("tipo");
+            listarPokemonsIndex("tipo");
             break;
         case ContarDinos:
-            contarDinosIndex();
+            contarPokemonsIndex();
             break;
         case EncontrarDinoPorTipo:
-            encontrarDinosProximosIndex();
+            encontrarPokemonsProximosIndex();
             break;
         case Sair:
             sair();
