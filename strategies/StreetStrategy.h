@@ -37,8 +37,15 @@ void cadastrarEstrada() {
         return;
     }
 
-    lista_adj[idOrigem].push_back({idDestino, peso});
-    lista_adj[idDestino].push_back({idOrigem, peso});
+    Aresta arestaOrigem;
+    arestaOrigem.destino = idDestino;
+    arestaOrigem.peso = peso;
+    lista_adj[idOrigem].push_back(arestaOrigem);
+    
+    Aresta arestaDestino;
+    arestaDestino.destino = idOrigem;
+    arestaDestino.peso = peso;
+    lista_adj[idDestino].push_back(arestaDestino);
 
     cout << "\nEstrada entre '" << cidades[idOrigem].nome << "' e '" << cidades[idDestino].nome << "' cadastrada com sucesso!" << endl;
 }
