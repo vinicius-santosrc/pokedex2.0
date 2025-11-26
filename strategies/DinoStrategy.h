@@ -16,13 +16,21 @@ struct Pokemon {
 
 struct node {
     Pokemon dados;
-    node *esquerda = nullptr;  //cidade anterior
-    node *direita = nullptr; //proxima cidade
+    node *esquerda;  //cidade anterior
+    node *direita; //proxima cidade
+    
+    node() : esquerda(NULL), direita(NULL) {}
 };
 
-node * raiz = nullptr;
+node * raiz = NULL;
 
-node * criarNo(Pokemon p);
+node * criarNo(Pokemon p) {
+    node* novoNo = new node();
+    novoNo->dados = p;
+    novoNo->esquerda = NULL;
+    novoNo->direita = NULL;
+    return novoNo;
+}
 
 node * inserirNaArvore(node *no, Pokemon p){
     if(no == NULL){
@@ -42,7 +50,8 @@ node * inserirNaArvore(node *no, Pokemon p){
 void listarPorNomeEmOrdem(node* no) {
     if(no != NULL) {
         listarPorNomeEmOrdem(no->esquerda);
-        cout << " - Nome: " << no->dados.nome << ", Tipo: " << no->dados.tipo << ", Numero: " << no->dados.numero<< ", Coordenadas: (" << no->dados.x << ", " << no->dados.y << ")" << endl;
+        cout << " - Nome: " << no->dados.nome << ", Tipo: " << no->dados.tipo << ", Numero: " 
+        << no->dados.numero<< ", Coordenadas: (" << no->dados.x << ", " << no->dados.y << ")" << endl;
         listarPorNomeEmOrdem(no->direita);
     }
 }
@@ -81,6 +90,7 @@ node* removerDaArvore(node* no, string nome) {
         no->dados = temp->dados;
         no->direita = removerDaArvore(no->direita, temp->dados.nome);
     }
+    return no;
 }
 
 void coletarTodos(node *no, list<Pokemon>& lista){
@@ -134,7 +144,8 @@ void listarPokemonsPorTipo() {
     listaPokemons.sort(compararPorTipo);
 
     cout << "\n--- Lista de Pokemons por Tipo ---" << endl;
-    for (const auto &p : listaPokemons) {
+    for (list<Pokemon>::const_iterator it = listaPokemons.begin(); it != listaPokemons.end(); ++it) {
+        const Pokemon &p = *it;
         cout << " - Nome: " << p.nome
              << ", Tipo: " << p.tipo
              << ", Numero: " << p.numero
@@ -145,7 +156,7 @@ void listarPokemonsPorTipo() {
 
 void contarPokemons() {
     cout << "--- Contagem de Pokemons por Tipo---" << endl;
-    if(raiz == nullptr)
+    if(raiz == NULL)
     {
     cout << "Nenhum Pokemon cadastrado." << endl;
     return;
